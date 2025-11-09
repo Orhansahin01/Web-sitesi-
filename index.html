@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Necmettin Akün | Koçluk, Mentörlük, Eğitim</title>
+  <!-- === NA: Tam Entegre Paket (Nav + Hero + Hizmetler + Referans + SSS) — Lacivert/Altın — LCP/CLS optimize === -->
+  <!-- Google Fonts: swap + preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Hero görselini önden getir (LCP hızlandırma, tek JPG) -->
+  <link
+    rel="preload"
+    as="image"
+    href="https://necmettinakun.com/wp-content/uploads/2025/11/necoakgun.jpg"
+    imagesrcset="https://necmettinakun.com/wp-content/uploads/2025/11/necoakgun.jpg 1200w"
+    imagesizes="(max-width:700px) 88vw, (max-width:980px) 72vw, 480px">
+
+  <style>
+    /* ====== KÜRESEL DEĞİŞKENLER (Lacivert + Altın) ====== */
+    :root{
+      --navy:#0b1a34; --deep-navy:#081327;
+      --gold:#d4af37; --light-gold:#f5e6a1; --gold-text:#e8d27a;
+      --ink:#101524; --text:#fff; --text-soft:rgba(255,255,255,.92);
+    }
+
+    html { scrollbar-gutter: stable both-edges; }
+    body{
+      font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-size-adjust:.525; font-synthesis-weight: none; text-rendering:optimizeLegibility;
+      color:var(--text); margin:0;
+    }
+
+    /* Taban yüzey */
+    .na-surface{
+      position:relative; isolation:isolate; border-radius:16px; overflow:hidden;
+      box-shadow:0 10px 36px rgba(0,0,0,.32);
+      background:
+        radial-gradient(60% 70% at 65% 45%, rgba(212,175,55,.13) 0%, rgba(212,175,55,0) 70%),
+        linear-gradient(125deg,var(--deep-navy) 0%, var(--navy) 60%, #000d1d 100%);
+      background-size:200% 200%; animation: heroFlow 18s ease-in-out infinite alternate; color:var(--text);
+    }
+    @keyframes heroFlow{0%{background-position:0% 40%}100%{background-position:100% 60%}}
+    @media (max-width:700px){ .na-surface{ animation:none } }
+    .na-surface::after{ content:""; position:absolute; inset:-2px; border-radius:16px; pointer-events:none; box-shadow:inset 0 0 0 1px rgba(245,230,161,.22); }
+
+    /* Ambient tanecikler (nazik) */
+    .na-surface::before{
+      content:""; position:absolute; inset:0; pointer-events:none; z-index:0;
+      background:
+        radial-gradient(2px 2px at 20% 30%, rgba(212,175,55,.18) 40%, transparent 41%),
+        radial-gradient(2px 2px at 70% 20%, rgba(212,175,55,.12) 40%, transparent 41%),
+        radial-gradient(2px 2px at 40% 70%, rgba(212,175,55,.14) 40%, transparent 41%);
+      animation: spark 12s ease-in-out infinite alternate; opacity:.35;
+    }
+    @keyframes spark{ 0%{ transform:translate3d(0,0,0) } 100%{ transform:translate3d(8px,-10px,0) } }
+
+    /* Skip link */
+    .skip-link{ position:absolute; left:-9999px; top:auto; }
+    .skip-link:focus{ left:12px; top:12px; z-index:9999; background:#000; color:#fff; padding:8px 10px; border-radius:8px; }
+    .visually-hidden{
+      position:absolute !important;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap; border:0;
+    }
+
+    .container{ max-width:1200px; margin:0 auto; padding:0 22px; }
+
+    /* ====== NAVİGASYON ====== */
+    .na-header{ position:relative; z-index:5; }
+    .na-header .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:68px; }
+    .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); white-space:nowrap; }
+    .brand-logo{ width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,var(--gold),#b7922c); box-shadow:0 6px 14px rgba(0,0,0,.28); display:grid; place-items:center; font:800 18px/1 "Inter",system-ui; color:#1a1a1a; }
+    .brand-name{ font:700 1.05rem/1 "Inter",system-ui; letter-spacing:.2px; }
+    .nav-links{ display:flex; gap:20px; align-items:center; }
+    .nav-links a{ text-decoration:none; color:var(--text-soft); font:600 .95rem/1 "Inter",system-ui; padding:10px 6px; border-radius:8px; }
+    .nav-links a:hover{ color:var(--gold-text); background:rgba(245,230,161,.10); }
+    .nav-links a::after{
+      content:""; display:inline-block; width:0.75em; height:0.75em; margin-left:6px;
+      translate:0 1px; opacity:0; transition:translate .2s ease, opacity .2s ease;
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23fff" viewBox="0 0 24 24"><path d="M5 12h12l-5-5 1.4-1.4L21.8 14l-8.4 8.4L12 21l5-5H5z"/></svg>') no-repeat center / contain;
+      background: var(--gold-text);
+    }
+    .nav-links a:hover::after{ translate:2px 1px; opacity:1; }
+
+    .nav-cta{ text-decoration:none; font-weight:800; border-radius:12px; padding:12px 18px; line-height:1; color:#1a1a1a; background:linear-gradient(180deg,var(--gold),#c7a13a); box-shadow:0 8px 18px rgba(0,0,0,.25); }
+    .nav-cta:hover{ transform:translateY(-1px); box-shadow:0 12px 22px rgba(0,0,0,.3); }
+
+    .burger{ display:none; width:44px; height:44px; border:1px solid rgba(245,230,161,.35); border-radius:10px; background:rgba(255,255,255,.06); color:var(--gold-text); }
+    .burger:focus-visible{ outline:3px solid rgba(245,230,161,.75); outline-offset:2px; }
+    #nav-toggle{ position:absolute; left:-9999px; }
+    .nav-drawer{ display:none; }
+    @media (max-width:980px){
+      .nav-links{ display:none; } .burger{ display:grid; place-items:center; }
+      #nav-toggle:checked ~ .nav-drawer{ display:block; }
+      .nav-drawer{ margin-top:12px; border:1px solid rgba(245,230,161,.22); border-radius:12px; background:rgba(0,0,0,.18); backdrop-filter:saturate(140%) blur(6px); }
+      .nav-drawer a{ display:block; padding:14px 14px; color:var(--text-soft); text-decoration:none; border-bottom:1px solid rgba(245,230,161,.12); font:600 1rem/1.2 "Inter",system-ui; }
+      .nav-drawer a:hover{ background:rgba(245,230,161,.10); color:#fff; }
+      .nav-drawer a:last-child{ border-bottom:none; }
+    }
+
+    /* ====== HERO ====== */
+    .na-hero{ padding:clamp(22px,3.6vw,32px) 0 0; }
+    .na-hero .wrap{
+      display:grid; gap:clamp(18px,2.6vw,34px); align-items:center; align-content:start;
+      grid-template-columns:minmax(280px,520px) minmax(0,1fr); grid-template-areas:"media content";
+      min-height: clamp(420px, 56vh, 620px);
+    }
+    .na-hero .wrap .media{ grid-area:media; }
+    .na-hero .content{ grid-area:content; display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
+    @media (max-width:980px){ .na-hero .wrap{ grid-template-columns:1fr; grid-template-areas:"content" "media"; } }
+
+    .media{
+      position:relative; border-radius:20px; padding:12px; background:rgba(255,255,255,.06);
+      box-shadow:inset 0 0 0 1px rgba(245,230,161,.18); z-index:3;
+      transition:transform .25s ease, box-shadow .25s ease;
+      min-height:clamp(280px,38vh,520px); contain:layout paint;
+    }
+    .photo{
+      border-radius:14px; overflow:hidden; position:relative; height:100%; aspect-ratio:4/5; background-color:#0c1526;
+      border:3px solid #fff; outline:1px solid rgba(212,175,55,.55); outline-offset:-5px; box-shadow:0 8px 20px rgba(0,0,0,.4);
+    }
+    .photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:40% 50%; font-size:0; color:transparent; backface-visibility:hidden; transform:translateZ(0); }
+    @media (hover:hover){ .media:hover{ transform:translateY(-2px) rotateX(1deg) rotateY(-1deg); box-shadow:0 14px 28px rgba(0,0,0,.35); } }
+    @media (hover:none){ .media:active{ filter:brightness(1.08); } }
+
+    .na-hero h1{
+      font-family:"DM Serif Display", Georgia, serif; font-size-adjust:.46; font-size:clamp(2.3rem,4.7vw,3.5rem);
+      line-height:1.06; margin:0; text-shadow:0 3px 10px rgba(0,0,0,.42);
+    }
+    .kicker{ font:600 clamp(.92rem,1.05vw,1.02rem)/1 "Inter", system-ui; text-transform:uppercase; letter-spacing:.34px; opacity:.92; color:var(--light-gold); }
+    .mini-divider{ width:48px; height:2px; background:var(--gold); border-radius:999px; box-shadow:0 0 10px rgba(212,175,55,.32); position:relative; }
+    .mini-divider::after{
+      content:""; position:absolute; left:-16px; right:-16px; top:-6px; bottom:-6px;
+      background: radial-gradient(closest-side, rgba(212,175,55,.18), transparent 72%);
+      filter: blur(6px); opacity:.25; pointer-events:none; animation: glowPulse 3.2s ease-in-out infinite;
+    }
+    @keyframes glowPulse{ 0%,100%{opacity:.20} 50%{opacity:.35} }
+
+    .trust-badge{ display:inline-flex; align-items:center; gap:8px; background:rgba(245,230,161,.10); border:1px solid rgba(212,175,55,.45); color:var(--gold-text); padding:8px 12px; border-radius:999px; font:600 .95rem/1.25 "Inter", system-ui; white-space:nowrap; }
+    .trust-badge svg{ flex:0 0 16px; }
+    .subline{ font: 1rem/1.6 "Inter", system-ui; font-size:clamp(1rem,1.3vw,1.14rem); color:var(--text-soft); max-width:58ch; margin:0; }
+
+    .actions{ display:flex; gap:14px; flex-wrap:wrap; }
+    .btn{ text-decoration:none; font-weight:700; border-radius:12px; padding:14px 22px; line-height:1; transition:.25s ease; position:relative; min-height:46px; display:inline-flex; align-items:center; }
+    .btn-primary{ overflow:hidden; background:linear-gradient(180deg,var(--gold),#c7a13a); color:#1a1a1a; box-shadow:0 8px 18px rgba(0,0,0,.25); }
+    .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 12px 22px rgba(0,0,0,.3); background:var(--light-gold); }
+    .btn-primary::after{ content:""; position:absolute; inset:0; background:linear-gradient(95deg,rgba(255,255,255,.28) 0%, transparent 55%); mix-blend-mode:screen; opacity:0; transition:opacity .3s; }
+    .btn-primary:hover::after{ opacity:1; }
+    .btn-ghost{ border:2px solid var(--light-gold); color:var(--gold-text); background:transparent; box-sizing:border-box; }
+    .btn-ghost:hover{ background:rgba(245,230,161,.1); color:#fff; }
+
+    /* ====== HERO İSTATİSTİKLER (ikonlu) ====== */
+    .hero-stats{
+      display:flex; flex-wrap:wrap; gap:12px 18px; margin:0; padding:0; list-style:none;
+      font-size:.95rem; line-height:1.25; opacity:.95; contain:layout paint;
+    }
+    .hero-stats li{ position:relative; padding-left:28px; white-space:nowrap; letter-spacing:0; font-weight:600; }
+    .hero-stats li::before{
+      content:""; position:absolute; left:0; top:50%; transform:translateY(-50%);
+      width:18px; height:18px; background:var(--gold); mask:no-repeat center / contain; box-shadow:0 0 10px rgba(212,175,55,.45);
+    }
+    /* 1. madde: Takvim (deneyim) */
+    .hero-stats li:nth-of-type(1)::before{
+      mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v3H2V6a2 2 0 0 1 2-2h3V2zm15 8v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8h20zm-5 3H7v2h10v-2z" fill="%23000"/></svg>');
+    }
+    /* 2. madde: Dil (küre/ızgara) */
+    .hero-stats li:nth-of-type(2)::before{
+      mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2Zm0 2c1.93 0 3.68.78 4.95 2.05A16 16 0 0 1 12 8a16 16 0 0 1-4.95-1.95A7.96 7.96 0 0 1 12 4Zm0 16a7.96 7.96 0 0 1-4.95-1.95A16 16 0 0 1 12 16a16 16 0 0 1 4.95 2.05A7.96 7.96 0 0 1 12 20Zm7.45-4.24A17.9 17.9 0 0 0 14 14.2V9.8a17.9 17.9 0 0 0 5.45-1.56A8 8 0 0 1 19.45 15.76ZM4.55 8.24A17.9 17.9 0 0 0 10 9.8v4.4a17.9 17.9 0 0 0-5.45 1.56A8 8 0 0 1 4.55 8.24Z" fill="%23000"/></svg>');
+    }
+
+    .gold-line{ height:4px; margin:28px auto 0; max-width:1200px; background:linear-gradient(90deg,#caa300,var(--gold),#caa300); border-radius:999px; box-shadow:0 0 18px rgba(212,175,55,.45); position:relative; z-index:1; }
+    .fade-bottom{ position:absolute; left:0; right:0; bottom:0; height:84px; background:linear-gradient(180deg,rgba(11,26,52,0) 0%, rgba(11,26,52,.7) 68%, rgba(11,26,52,1) 100%); z-index:0; }
+    .texture{ content:""; position:absolute; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(212,175,55,.10) .8px, transparent .8px); background-size:4px 4px; opacity:.12; mix-blend-mode:screen; }
+
+    /* ====== HİZMET KARTLARI (3'lü) ====== */
+    .services{ margin:22px 0 0; padding: clamp(24px,3.4vw,36px) 0 clamp(36px,5vw,56px); }
+    .services .section-head{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:18px; }
+    .services .title{ font-family:"DM Serif Display", Georgia, serif; font-size:clamp(1.6rem,3vw,2.2rem); letter-spacing:.2px; }
+    .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    @media (max-width:980px){ .services-grid{ grid-template-columns:1fr; } }
+    .card{ position:relative; border-radius:16px; background:rgba(255,255,255,.06); box-shadow:inset 0 0 0 1px rgba(245,230,161,.18); padding:18px; display:flex; flex-direction:column; min-height:220px; }
+    .card h3{ font: 700 1.15rem/1.25 "Inter",system-ui; margin:2px 0 8px; color:#fff; display:flex; align-items:center; gap:10px; }
+    .card p{ font: 400 1rem/1.6 "Inter",system-ui; color:var(--text-soft); margin:0 0 14px; }
+    .card .more{ margin-top:auto; display:inline-flex; align-items:center; gap:8px; color:var(--gold-text); text-decoration:none; font:700 .95rem/1 "Inter",system-ui; }
+    .card .more:hover{ color:#fff; text-decoration:underline; text-underline-offset:3px; }
+
+    /* Kart başlık ikonları (hedef / insanlar / evrak) */
+    .services-grid article h3::before{
+      content:""; inline-size:20px; block-size:20px; flex:0 0 20px;
+      background: var(--gold); mask-size:contain; mask-repeat:no-repeat; mask-position:center;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+    }
+    .services-grid article:nth-of-type(1) h3::before{
+      mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2v2a8 8 0 1 1-8 8H2A10 10 0 1 0 12 2Zm0 4v2a4 4 0 1 1-4 4H6a6 6 0 1 0 6-6Zm0 4a2 2 0 1 0 2 2h2a4 4 0 1 1-4-4Z" fill="%23000"/></svg>');
+    }
+    .services-grid article:nth-of-type(2) h3::before{
+      mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-3.2-6.4A4 4 0 0 0 16 11Zm-8 0a4 4 0 1 0-3.2-6.4A4 4 0 0 0 8 11Zm0 2c-3.33 0-6 1.54-6 3.44V21h8v-2.3c0-1.1.9-2 2-2h2.3A8.2 8.2 0 0 0 8 13Zm8 1c-1.36 0-2.63.26-3.73.73.69.59 1.13 1.45 1.13 2.41V21h8v-2.56C21.4 14.98 18.84 14 16 14Z" fill="%23000"/></svg>');
+    }
+    .services-grid article:nth-of-type(3) h3::before{
+      mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4h4a2 2 0 0 1 2 2v1h3a3 3 0 0 1 3 3v2H2V10a3 3 0 0 1 3-3h3V6a2 2 0 0 1 2-2Zm0 3h4V6h-4v1Zm12 6v5a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-5h7v1a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1h7Z" fill="%23000"/></svg>');
+    }
+
+    /* ====== REFERANSLAR (Yatay Kaydırmalı Slider) ====== */
+    .testimonials{ padding: clamp(24px,3.4vw,36px) 0 clamp(36px,5vw,56px); }
+    .testimonials .section-head{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:18px; }
+    .testimonials .title{ font-family:"DM Serif Display", Georgia, serif; font-size:clamp(1.6rem,3vw,2.2rem); letter-spacing:.2px; }
+    .ts-scroll{
+      display:grid; grid-auto-flow:column; grid-auto-columns:minmax(280px, 1fr);
+      gap:16px; overflow-x:auto; padding-bottom:6px; scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch; scrollbar-width:thin; position:relative;
+    }
+    .ts-card{ scroll-snap-align:start; border-radius:16px; background:rgba(255,255,255,.06); box-shadow:inset 0 0 0 1px rgba(245,230,161,.18); padding:18px; min-height:180px; display:flex; flex-direction:column; gap:10px; }
+    .ts-card h3{ font:700 1rem/1.2 "Inter",system-ui; margin:0; color:#fff; opacity:.95; }
+    .ts-card blockquote{ margin:0; font: 500 1rem/1.6 "Inter",system-ui; color:var(--text-soft); }
+    .ts-card .ts-meta{ font:500 .9rem/1.2 "Inter",system-ui; color:var(--gold-text); opacity:.95; }
+
+    /* Büyük tırnak ikonları kaldırıldı: blockquote::before yok */
+
+    /* Kaydır ipucu (masaüstü) */
+    @media (hover:hover){
+      .ts-scroll::after{
+        content:"⇠  Kaydır  ⇢";
+        position:absolute; right:12px; bottom:-2px; font:700 .8rem/1 "Inter",system-ui;
+        color:var(--gold-text); background:rgba(245,230,161,.08);
+        border:1px solid rgba(245,230,161,.25); padding:6px 10px; border-radius:999px;
+        pointer-events:none; opacity:.9; animation: hintFade 2.2s ease-in-out infinite;
+      }
+      @keyframes hintFade{ 0%,100%{opacity:.25; transform:translateY(0)} 50%{opacity:.9; transform:translateY(-1px)} }
+    }
+
+    /* ====== SSS (Accordion) ====== */
+    .faq{ padding: clamp(24px,3.4vw,36px) 0 clamp(46px,6vw,68px); }
+    .faq .title{ font-family:"DM Serif Display", Georgia, serif; font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:12px; }
+    .faq details{ border:1px solid rgba(245,230,161,.22); border-radius:12px; background:rgba(255,255,255,.04); padding:12px 14px; margin:10px 0; }
+    .faq summary{ cursor:pointer; list-style:none; font:700 1rem/1.2 "Inter",system-ui; color:#fff; position:relative; padding-right:28px; }
+    .faq summary::-webkit-details-marker{ display:none; }
+    .faq summary::after{
+      content:""; position:absolute; right:8px; top:50%; translate:0 -50%;
+      width:16px; height:16px; opacity:.9; background: var(--gold-text); transition: transform .25s ease;
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="%23000"/></svg>') no-repeat center/contain;
+    }
+    .faq details[open] summary::after{ transform:rotate(180deg); }
+    .faq .answer{ margin-top:10px; font: 400 1rem/1.6 "Inter",system-ui; color:var(--text-soft); }
+
+    /* Erişilebilirlik */
+    a:focus-visible{ outline:3px solid rgba(245,230,161,.75); outline-offset:2px; }
+    @media (prefers-reduced-motion: reduce){ .na-surface{ animation:none } .media, .btn, .nav-cta{ transition:none } }
+    @media (max-width:360px){ .brand-name{ display:none; } }
+    h1{ word-break:break-word; }
+  </style>
+</head>
+<body>
+  <section class="na-surface" lang="tr">
+    <!-- Skip to content -->
+    <a href="#main" class="skip-link">İçeriğe atla</a>
+
+    <div class="texture" aria-hidden="true"></div>
+
+    <!-- NAVİGASYON (Hero ile hizalı) -->
+    <header class="na-header" role="navigation" aria-label="Ana Menü">
+      <div class="container nav">
+        <a class="brand" href="/">
+          <span class="brand-logo" aria-hidden="true">NA</span>
+          <span class="brand-name">Necmettin Akün</span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="/hakkimda">Hakkımda</a>
+          <a href="#hizmetler">Hizmetler</a>
+          <a href="#referanslar">Referanslar</a>
+          <a href="#sss">SSS</a>
+          <a href="/iletisim" class="nav-cta" data-analytics="nav_randevu">Randevu Al</a>
+        </nav>
+
+        <!-- Mobil Menü: Checkbox hack -->
+        <label for="nav-toggle" class="burger" aria-label="Menüyü Aç/Kapat">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+        </label>
+        <input type="checkbox" id="nav-toggle" aria-hidden="true">
+      </div>
+      <div class="container nav-drawer">
+        <a href="/hakkimda" onclick="document.getElementById('nav-toggle').checked=false">Hakkımda</a>
+        <a href="#hizmetler" onclick="document.getElementById('nav-toggle').checked=false">Hizmetler</a>
+        <a href="#referanslar" onclick="document.getElementById('nav-toggle').checked=false">Referanslar</a>
+        <a href="#sss" onclick="document.getElementById('nav-toggle').checked=false">SSS</a>
+        <a href="/iletisim" onclick="document.getElementById('nav-toggle').checked=false">Randevu Al</a>
+        <a href="#" onclick="document.getElementById('nav-toggle').checked=false" class="visually-hidden">Menüyü kapat</a>
+      </div>
+    </header>
+
+    <!-- ANA İÇERİK -->
+    <main id="main" tabindex="-1">
+      <!-- HERO -->
+      <section class="na-hero" role="banner" aria-labelledby="hero-title">
+        <div class="container wrap">
+          <!-- SOL: Fotoğraf bloğu -->
+          <div class="media">
+            <div class="photo">
+              <img src="https://necmettinakun.com/wp-content/uploads/2025/11/necoakgun.jpg"
+                   alt="Necmettin Akün portre"
+                   loading="eager" fetchpriority="high" decoding="async"
+                   width="1200" height="1500">
+            </div>
+          </div>
+
+          <!-- SAĞ: Metin bloğu -->
+          <div class="content">
+            <div class="kicker">Koçluk • Mentörlük • Eğitim</div>
+            <h1 id="hero-title">Merhaba, Ben Necmettin Akün</h1>
+            <div class="mini-divider" aria-hidden="true"></div>
+
+            <span class="trust-badge" aria-label="Uluslararası koçluk akreditasyonu">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              ICF Akredite Koç
+            </span>
+
+            <p class="subline">Gerçek değişim sade davranışlarla başlar. İnsanların potansiyellerini eyleme dönüştürmelerine yardımcı olur, koçluk ve mentörlükle farkındalığı güçlendiririm. 22 yıllık kurumsal deneyimi insan gelişimine taşıyorum.</p>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="#hizmetler" data-analytics="cta_hero_primary">Daha fazlası</a>
+              <a class="btn btn-ghost" href="/iletisim" data-analytics="cta_hero_contact">İletişime Geç</a>
+            </div>
+
+            <ul class="hero-stats" aria-label="Güven göstergeleri">
+              <li>22+ yıl kurumsal deneyim</li>
+              <li>Türkçe • İngilizce • Almanca</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="gold-line" aria-hidden="true"></div>
+        <div class="fade-bottom" aria-hidden="true"></div>
+      </section>
+
+      <!-- HİZMETLER (3'lü kart) — chip etiketleri kaldırıldı -->
+      <section class="services" id="hizmetler" aria-labelledby="srv-title">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="srv-title" class="title">Sizin İçin Ne Yapabilirim?</h2>
+            <a href="/hizmetler" class="btn btn-ghost">Tüm Hizmetler</a>
+          </div>
+
+          <div class="services-grid">
+            <!-- Kart 1 -->
+            <article class="card" aria-labelledby="c1">
+              <h3 id="c1">Birebir Koçluk</h3>
+              <p>Kişiye özel seanslarla, bireyin kendini tanıması, hedeflerini netleştirmesi ve potansiyelini ortaya çıkarmasına rehberlik ederim.</p>
+              <a class="more" href="/iletisim">İletişime Geç
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 5l7 7-7 7v-4H4v-6h9V5z"/></svg>
+              </a>
+            </article>
+
+            <!-- Kart 2 -->
+            <article class="card" aria-labelledby="c2">
+              <h3 id="c2">Grup Koçluğu</h3>
+              <p>Benzer amaç ve gelişim alanlarına sahip gruplar için interaktif seanslar. Ortak öğrenme, içgörü ve dönüşüm alanı sunar.</p>
+              <a class="more" href="/iletisim">İletişime Geç
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 5l7 7-7 7v-4H4v-6h9V5z"/></svg>
+              </a>
+            </article>
+
+            <!-- Kart 3 -->
+            <article class="card" aria-labelledby="c3">
+              <h3 id="c3">Mesleki Gelişim Mentörlüğü</h3>
+              <p>Özellikle kurumsal hayatta ve lojistik sektöründe deneyim kazanmak isteyen profesyonellere yönlendirme ve stratejik mentörlük sağlarım.</p>
+              <a class="more" href="/iletisim">İletişime Geç
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 5l7 7-7 7v-4H4v-6h9V5z"/></svg>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- REFERANSLAR: Kaydırmalı (büyük tırnak yok) -->
+      <section class="testimonials" id="referanslar" aria-labelledby="ref-title">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="ref-title" class="title">Referanslar</h2>
+          </div>
+
+          <div class="ts-scroll" tabindex="0" aria-label="Danışan Görüşleri (yatay kaydır)">
+            <!-- 1 -->
+            <figure class="ts-card" itemscope itemtype="https://schema.org/Review">
+              <h3>Bireysel Koçluk – Refik A. (39) – İnsan Kaynakları Müdürü</h3>
+              <blockquote itemprop="reviewBody">Necmettin Bey’le çalışmak bana hazır olmadığımı sandığım alanlarda ciddi farkındalıklar kazandırdı. Artık kararlarımı daha net, daha kendimden emin alıyorum. Koçluk sürecim dönüşüm gibiydi.</blockquote>
+              <div class="ts-meta" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Refik A.</span> • Puan: 5/5</div>
+              <meta itemprop="itemReviewed" content="Necmettin Akün"><meta itemprop="reviewRating" content="5">
+            </figure>
+            <!-- 2 -->
+            <figure class="ts-card" itemscope itemtype="https://schema.org/Review">
+              <h3>Mentörlük – Mehmet T. (28) – Yazılım Yöneticisi</h3>
+              <blockquote itemprop="reviewBody">Mesleki hedeflerimi belirlerken çıkmazdaydım… Yolumu hem stratejiyle hem de samimiyetle aydınlattığı için minnettarım. Sektörel deneyimi resmen yön verdi.</blockquote>
+              <div class="ts-meta" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Mehmet T.</span> • Puan: 5/5</div>
+              <meta itemprop="itemReviewed" content="Necmettin Akün"><meta itemprop="reviewRating" content="5">
+            </figure>
+            <!-- 3 -->
+            <figure class="ts-card" itemscope itemtype="https://schema.org/Review">
+              <h3>Eğitim – Sena K. (26) – Satış Danışmanı</h3>
+              <blockquote itemprop="reviewBody">Katıldığım ikna ve iletişim eğitimi sonrası müşterilere yaklaşımım tamamen değişti. Artık satış değil, bağ kuruyorum. Bu da sayılara net şekilde yansıyor.</blockquote>
+              <div class="ts-meta" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Sena K.</span> • Puan: 5/5</div>
+              <meta itemprop="itemReviewed" content="Necmettin Akün"><meta itemprop="reviewRating" content="5">
+            </figure>
+            <!-- 4 -->
+            <figure class="ts-card" itemscope itemtype="https://schema.org/Review">
+              <h3>Koçluk – E. S. (39) – Operasyon Müdürü</h3>
+              <blockquote itemprop="reviewBody">Kafamda bin tane düşünce varken hangisini önceleyeceğimi bilemez hale gelmiştim. Takıldığım yerde aklımı açan o güçlü koçluk soruları ve yargısız yaklaşımı sayesinde, hem iş hem özel hayatımda netleştim.</blockquote>
+              <div class="ts-meta" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">E. S.</span> • Puan: 5/5</div>
+              <meta itemprop="itemReviewed" content="Necmettin Akün"><meta itemprop="reviewRating" content="5">
+            </figure>
+            <!-- 5 -->
+            <figure class="ts-card" itemscope itemtype="https://schema.org/Review">
+              <h3>Koçluk – N. K. (45) – İnsan Kaynakları Uzmanı</h3>
+              <blockquote itemprop="reviewBody">Kurum içi baskılardan dolayı tükenmiş hissederken başladım seanslara. O kadar güvenli ve düşündürücü bir alan açtı ki… Yalnızca iyi bir yönetici değil, iyi bir insan olmayı da yeniden hatırladım.</blockquote>
+              <div class="ts-meta" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">N. K.</span> • Puan: 5/5</div>
+              <meta itemprop="itemReviewed" content="Necmettin Akün"><meta itemprop="reviewRating" content="5">
+            </figure>
+            <!-- 6 -->
+            <figure class="ts-card" itemscope itemtype="https://schema.org/Review">
+              <h3>Mentörlük – Kenan D. (34) – Lojistik Operasyon Müdürü</h3>
+              <blockquote itemprop="reviewBody">Uzun yıllardır lojistikte çalışıyorum ama terfi sürecimde neyi eksik yaptığımı fark etmiyordum. Mentörlük sürecinde hem kariyerimin hem de liderlik tarzımın dinamiklerini keşfettim. Yön verdi, bakış açımı değiştirdi.</blockquote>
+              <div class="ts-meta" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Kenan D.</span> • Puan: 5/5</div>
+              <meta itemprop="itemReviewed" content="Necmettin Akün"><meta itemprop="reviewRating" content="5">
+            </figure>
+            <!-- 7 -->
+            <figure class="ts-card" itemscope itemtype="https://schema.org/Review">
+              <h3>Mentörlük – Eda B. (28) – Girişimci Adayı</h3>
+              <blockquote itemprop="reviewBody">Yeni bir girişim fikrim vardı ama nasıl hayata geçireceğimi bilmiyordum. Adım adım, gerçekçi ve motive eden bir yol haritası çıkardık. Hem kendime güvenim hem iş modelim güçlendi. Mentörlük tam yerindeydi.</blockquote>
+              <div class="ts-meta" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Eda B.</span> • Puan: 5/5</div>
+              <meta itemprop="itemReviewed" content="Necmettin Akün"><meta itemprop="reviewRating" content="5">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIK SORULANLAR: Accordion -->
+      <section class="faq" id="sss" aria-labelledby="faq-title">
+        <div class="container">
+          <h2 id="faq-title" class="title">Sık Sorulanlar</h2>
+          <details>
+            <summary>Koçluk nedir? Mentörlükten farkı ne?</summary>
+            <div class="answer">Koçluk; güçlü sorular ve yansıtıcı dinleme ile kişinin kendi çözümlerini bulmasına alan açar. Mentörlük ise deneyime dayalı yönlendirme ve tavsiye içerir. Çalışma modelinde iki yaklaşımı amaca göre ayrı ya da birlikte kullanırım.</div>
+          </details>
+          <details>
+            <summary>Seanslar nasıl ilerliyor?</summary>
+            <div class="answer">Bireyselde 60–75 dk çevrim içi/yerinde; hedef belirleme → ölçümleme → eylem adımları. Kurumsalda KPI ve raporlama takvimine entegre edilir.</div>
+          </details>
+          <details>
+            <summary>Kaç seans gerekir?</summary>
+            <div class="answer">Bireysel için 6–12 oturum öneririm. Kurumsal programlar, hedef ve ekip büyüklüğüne göre özelleştirilir.</div>
+          </details>
+          <details>
+            <summary>Gizlilik ve etik nasıl sağlanır?</summary>
+            <div class="answer">ICF etik ilkelerine uyarım; tüm görüşmeler gizlidir. İzin olmadan isim/paylaşımlar yapılmaz.</div>
+          </details>
+          <details>
+            <summary>Ücretlendirme ve randevu nasıl?</summary>
+            <div class="answer">Ön görüşme ücretsizdir. İhtiyaca göre paket belirlenir. <a class="btn btn-ghost" href="/iletisim">İletişime Geç</a></div>
+          </details>
+        </div>
+      </section>
+    </main>
+  </section>
+
+  <!-- ====== SEO: JSON-LD Yapısal Veriler ====== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Necmettin Akün",
+    "jobTitle": "Koç | Mentör | Eğitmen",
+    "url": "https://necmettinakun.com/",
+    "sameAs": [],
+    "knowsLanguage": ["tr", "en", "de"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Necmettin Akün",
+    "url": "https://necmettinakun.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://necmettinakun.com/?s={query}",
+      "query-input": "required name=query"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": {"@type":"Review","author":{"@type":"Person","name":"Refik A."},"reviewBody":"Necmettin Bey’le çalışmak bana hazır olmadığımı sandığım alanlarda ciddi farkındalıklar kazandırdı. Artık kararlarımı daha net, daha kendimden emin alıyorum. Koçluk sürecim dönüşüm gibiydi.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"itemReviewed":{"@type":"Person","name":"Necmettin Akün"}}},
+      { "@type": "ListItem", "position": 2, "item": {"@type":"Review","author":{"@type":"Person","name":"Mehmet T."},"reviewBody":"Mesleki hedeflerimi belirlerken çıkmazdaydım… Yolumu hem stratejiyle hem de samimiyetle aydınlattığı için minnettarım. Sektörel deneyimi resmen yön verdi.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"itemReviewed":{"@type":"Person","name":"Necmettin Akün"}}},
+      { "@type": "ListItem", "position": 3, "item": {"@type":"Review","author":{"@type":"Person","name":"Sena K."},"reviewBody":"Katıldığım ikna ve iletişim eğitimi sonrası müşterilere yaklaşımım tamamen değişti. Artık satış değil, bağ kuruyorum. Bu da sayılara net şekilde yansıyor.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"itemReviewed":{"@type":"Person","name":"Necmettin Akün"}}},
+      { "@type": "ListItem", "position": 4, "item": {"@type":"Review","author":{"@type":"Person","name":"E. S."},"reviewBody":"Kafamda bin tane düşünce varken hangisini önceleyeceğimi bilemez hale gelmiştim. Takıldığım yerde aklımı açan o güçlü koçluk soruları ve yargısız yaklaşımı sayesinde, hem iş hem özel hayatımda netleştim.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"itemReviewed":{"@type":"Person","name":"Necmettin Akün"}}},
+      { "@type": "ListItem", "position": 5, "item": {"@type":"Review","author":{"@type":"Person","name":"N. K."},"reviewBody":"Kurum içi baskılardan dolayı tükenmiş hissederken başladım seanslara. O kadar güvenli ve düşündürücü bir alan açtı ki… Yalnızca iyi bir yönetici değil, iyi bir insan olmayı da yeniden hatırladım.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"itemReviewed":{"@type":"Person","name":"Necmettin Akün"}}},
+      { "@type": "ListItem", "position": 6, "item": {"@type":"Review","author":{"@type":"Person","name":"Kenan D."},"reviewBody":"Uzun yıllardır lojistikte çalışıyorum ama terfi sürecimde neyi eksik yaptığımı fark etmiyordum. Mentörlük sürecinde hem kariyerimin hem de liderlik tarzımın dinamiklerini keşfettim. Yön verdi, bakış açımı değiştirdi.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"itemReviewed":{"@type":"Person","name":"Necmettin Akün"}}},
+      { "@type": "ListItem", "position": 7, "item": {"@type":"Review","author":{"@type":"Person","name":"Eda B."},"reviewBody":"Yeni bir girişim fikrim vardı ama nasıl hayata geçireceğimi bilmiyordum. Adım adım, gerçekçi ve motive eden bir yol haritası çıkardık. Hem kendime güvenim hem iş modelim güçlendi. Mentörlük tam yerindeydi.","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"itemReviewed":{"@type":"Person","name":"Necmettin Akün"}}}
+    ]
+  }
+  </script>
+</body>
+</html>
